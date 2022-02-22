@@ -8,7 +8,7 @@ function App() {
     {/* <!-- Brand Logo --> */}
     <a href="index3.html" class="brand-link">
      
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+      <span class="brand-text font-weight-light">Math Tools</span>
     </a>
 
     {/* <!-- Sidebar --> */}
@@ -19,7 +19,7 @@ function App() {
           <img src="%PUBLIC_URL%/dist/img/user2.jpg" class="img-circle elevation-2" alt="User Image" />
         </div> */}
         <div class="info">
-          <a href="/" class="d-block">Alexander Pierce</a>
+          <a href="/" class="d-block">Chandan Bhagat</a>
         </div>
       </div>
 
@@ -40,7 +40,7 @@ function App() {
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           {/* <!-- Add icons to the links using the .nav-icon class */}
                {/* with font-awesome or any other icon font library --> */}
-          <li class="nav-item menu-open">
+          {/* <li class="nav-item menu-open">
             <a href="/" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
@@ -68,13 +68,13 @@ function App() {
                 </a>
               </li>
             </ul>
-          </li>
+          </li> */}
           <li class="nav-item">
             <a href="pages/widgets.html" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
-                Widgets
-                <span class="right badge badge-danger">New</span>
+                Will be updating soon
+                
               </p>
             </a>
           </li>
