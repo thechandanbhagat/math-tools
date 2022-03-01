@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from 'react-dom';
 import UseEquation from "./UseEquation";
 
 class Equation extends React.Component {
@@ -16,7 +16,9 @@ class Equation extends React.Component {
   
   
   handleSubmit(event) {
-    ReactDOM.render( UseEquation(this.state.value), document.getElementById("eq"));
+    
+    ReactDOM.render(<UseEquation equation={this.state.value} /> , document.getElementById("eq"));
+    //var eqn=UseEquation();
     event.preventDefault();
   }
 
