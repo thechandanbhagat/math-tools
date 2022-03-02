@@ -2,9 +2,11 @@ import EquationEditor from "equation-editor-react";
 import React, { CSSProperties, useState } from "react";
 
 const equationWrapperStyle: CSSProperties = {
-  fontSize: "24px",
-  position: "absolute",
-  top: "50%",
+  fontSize: "48px",
+  position: "relative",
+  display: "table",
+  
+  marginTop:"2%",
   left: "50%",
   transform: "translate(-50%, -50%)"
 };
@@ -15,6 +17,14 @@ const equationOutputStyle: CSSProperties = {
   textAlign: "center"
 };
 
+const placeholderOutputStyle: CSSProperties = {
+  fontSize: "20px",
+  display: "table",
+
+ marginLeft:"auto",
+ marginRight:"auto",
+  textAlign: "center"
+};
 
 
 function Equation() {
@@ -33,6 +43,9 @@ function handleSubmit(event:any) {
         <div className="row">
 
         </div>
+          <div className="row" style={placeholderOutputStyle}>
+          Type the equation here
+          </div>
         <div id="eq" style={equationWrapperStyle}>
         <EquationEditor 
       value={Eqn}
