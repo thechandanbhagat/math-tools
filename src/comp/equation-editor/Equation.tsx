@@ -1,5 +1,7 @@
 import EquationEditor from "equation-editor-react";
 import React, { CSSProperties, useState } from "react";
+import { EditableMathField } from "react-mathquill";
+import NormalEquationSolver from "./NormalEquationSolver";
 
 const equationWrapperStyle: CSSProperties = {
   fontSize: "48px",
@@ -35,6 +37,8 @@ function Equation() {
   }
 
   const [TextEqn, setTextEqn] = useState("");
+  const [Result, setResult] = useState("");
+  const [ResultNew, setResultNew] = useState("");
   const [Eqn, setEqn] = useState("y=x");
   return (
     <div className="container-fluid">
@@ -50,11 +54,41 @@ function Equation() {
           autoOperatorNames="sin cos tan"
         />
         <p style={equationOutputStyle}>
-          <code>{Eqn}</code>
+        
+          <span>latex: </span>
+          <strong>
+            <code>{Eqn}</code>
+          </strong>
         </p>
       </div>
+      <button onClick={Solve} className="btn btn-outline-primary">Solve</button>
+      <div className="row" style={placeholderOutputStyle}>
+      {/* <EquationEditor
+          value={Result}
+          onChange={setResultNew}
+          autoCommands="bar overline sqrt sum prod int alpha beta gamma delta epsilon zeta eta theta iota kappa lambda mu nu xi omikron pi rho sigma tau upsilon phi chi psi omega Alpha Beta Gamma Aelta Epsilon Zeta Eta Theta Iota Kappa Lambda Mu Nu Xi Omikron Pi Rho Sigma Tau Upsilon Phi Chi Psi Omega rangle langle otimes neq leq ll geq gg approx dagger angle in"
+          autoOperatorNames="sin cos tan"
+        /> */}
+        <EditableMathField
+          latex={Result}
+          contentEditable="false"
+         />
+        <div className="row">
+
+     
+        </div>
+        </div>
     </div>
   );
+
+  function Solve() {
+    var equate=new NormalEquationSolver();
+    var solved=equate.Solve(Eqn);
+    console.log(solved);
+    setResult(solved);
+  }
+  
 }
+
 
 export default Equation;
