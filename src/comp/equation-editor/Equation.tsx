@@ -17,7 +17,8 @@ const equationInputStyle: CSSProperties = {
   fontSize: "48px",
   alignSelf: "center",
   textAlign: "center",
-  border:"none"
+  border:"none",
+alignContent:"center",
 };
 
 
@@ -48,7 +49,6 @@ function Equation() {
   const [TextEqn, setTextEqn] = useState("");
   const [raw, setRaw] = useState("");
   const [Result, setResult] = useState("");
-  const [ResultNew, setResultNew] = useState("");
   const [Eqn, setEqn] = useState("y=x");
   return (
     <div className="container-fluid">
@@ -101,8 +101,8 @@ function Equation() {
 
   function Solve() {
     var equate=new NormalEquationSolver();
-    var solved=equate.Solve(Eqn);
-    console.log(solved);
+    var solved=equate.Solve(raw);
+    
     setResult(solved);
   }
   

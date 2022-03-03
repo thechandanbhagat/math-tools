@@ -1,11 +1,29 @@
+import { all, create } from 'mathjs';
 import { IEquationSolver } from "./IEquationSolver";
 
+const config = { 
+ 
+}
+const math = create(all, config)
 class NormalEquationSolver implements IEquationSolver {
   Solve(equation: string): string {
-    var separated = equation.split("+");
-    var first = separated[0].replace("\\frac", "");
-    var second = separated[1].replace("\\frac", "");
-    return this.calculateFractions(first, second);
+    var cleanedEquation = this.fractionCleaner(equation);
+    var res=math.parse(cleanedEquation);
+    var ratio=math.format(math.fraction(res.evaluate()), { fraction:'ratio'});
+    console.log("Evaluate "+ratio);
+    return this.resultCleaner(ratio);
+    
+  }
+  resultCleaner(equation: string): string {
+    var pattern=/(\d+)\/(\d+)/g;
+    var regex = new RegExp(pattern);
+    return equation.replace(regex, '\\frac{$1}{$2}');
+  }
+
+  fractionCleaner(equation: string): string {
+    var pattern=/(\d+)(\(\d+\)\/\(\d+\))/g;
+    var regex = new RegExp(pattern);
+    return equation.replace(regex, '$1\+$2');
   }
 
   calculateFractions(first: string, second: string): string {
