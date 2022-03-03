@@ -48,5 +48,8 @@ class NormalEquationSolver implements IEquationSolver {
         }
         return prime;
     }
+    //latex string solve the math fraction numbers
+    
+
 }
 export default NormalEquationSolver;
