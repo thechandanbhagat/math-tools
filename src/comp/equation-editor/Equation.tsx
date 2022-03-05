@@ -53,49 +53,71 @@ function Equation() {
   }
 
   const [TextEqn, setTextEqn] = useState("");
-  const [raw, setRaw] = useState("");
+  const [raw, setRaw] = useState("(1)/(2)+(1)/(2)");
   const [Result, setResult] = useState("");
-  const [Eqn, setEqn] = useState("y=x");
+  const [Eqn, setEqn] = useState("\\frac{1}{2}+\\frac{1}{2}");
   return (
-    <div className="container-fluid">
-      <div className="row"></div>
-      <div id="eq" style={equationWrapperStyle}>
-        <EditableMathField
-          style={equationInputStyle}
-          className="mathquill-example-field"
-          latex={Eqn}
-          onChange={(equation) => {
-            setRaw(equation.text());
-            setEqn(equation.latex());
-          }}
-        />
-        <p style={equationOutputStyle}>
-          <span>latex: </span>
-          <strong>
-            <code>{Eqn}</code>
-          </strong>
-        </p>
-        <p style={equationOutputStyle}>
-          <span>raw: </span>
-          <strong>
-            <code>{raw}</code>
-          </strong>
-        </p>
-      </div>
-      <div className="row">
-        <div className="col">
-          <button onClick={Solve} className="btn btn-outline-primary">
-            Solve
+    <div className="card elevation-5">
+      <div className="card-header">
+        <div className="card-title">Solve the fractions</div>
+        <div className="card-tools">
+        <button type="button" className="btn btn-tool" data-card-widget="maximize">
+            <i className="fas fa-expand"></i>
           </button>
+          <button type="button" className="btn btn-tool" data-card-widget="collapse">
+            <i className="fas fa-minus"></i>
+          </button>
+          
         </div>
       </div>
-      <div className="row" style={placeholderOutputStyle}>
-        <EditableMathField
-          latex={Result}
-          contentEditable="false"
-          style={outputStyle}
-        />
-        <div className="row"></div>
+      <div className="card-body">
+        <div className="container-fluid">
+          <div className="row"></div>
+          <div id="eq" style={equationWrapperStyle}>
+            <EditableMathField
+              style={equationInputStyle}
+              className="mathquill-example-field"
+              latex={Eqn}
+              onChange={(equation) => {
+                setRaw(equation.text());
+                setEqn(equation.latex());
+              }}
+            />
+            <p style={equationOutputStyle}>
+              <span>latex: </span>
+              <strong>
+                <code>{Eqn}</code>
+              </strong>
+            </p>
+            <p style={equationOutputStyle}>
+              <span>raw: </span>
+              <strong>
+                <code>{raw}</code>
+              </strong>
+            </p>
+          </div>
+         
+        </div>
+      </div>
+      <div className="card-footer">
+      <div className="row">
+            <div className="col">
+              <button onClick={Solve} className="btn btn-outline-primary">
+                Solve
+              </button>
+            </div>
+    
+          <div className="col" >
+            <div style={placeholderOutputStyle}>
+
+            <EditableMathField
+              latex={Result}
+              contentEditable="false"
+              style={outputStyle}
+              />
+              </div>
+          </div>
+          </div>
       </div>
     </div>
   );
