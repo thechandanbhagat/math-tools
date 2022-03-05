@@ -1,6 +1,7 @@
 import React, { CSSProperties } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Equations from "../equation-editor/Equation";
+import Derivative from "./Derivative";
 import Home from "./Home";
 
 const cardStyle: CSSProperties = {
@@ -20,6 +21,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/fraction" element={<Equations />} />
+              <Route path="/derivative" element={<Derivative />} />
             </Routes>
           </BrowserRouter>
         </div>
