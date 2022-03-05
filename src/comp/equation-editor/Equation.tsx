@@ -43,11 +43,6 @@ const placeholderOutputStyle: CSSProperties = {
   marginRight: "auto",
   textAlign: "center",
 };
-const cardStyle : CSSProperties ={
-  marginLeft: "2%",
- marginRight: "2%"
-  
-}
 
 function Equation() {
   function handleSubmit(event: any) {
@@ -62,7 +57,7 @@ function Equation() {
   const [Result, setResult] = useState("");
   const [Eqn, setEqn] = useState("\\frac{1}{2}+\\frac{1}{2}");
   return (
-    <div className="card elevation-5" style={cardStyle}>
+    <div className="card elevation-5">
       <div className="card-header">
         <div className="card-title">Solve the fractions</div>
         <div className="card-tools">
