@@ -1,5 +1,4 @@
 import React from "react";
-
 function App(){
     return (
         <nav className="main-header navbar navbar-expand navbar-white navbar-light">
@@ -12,7 +11,7 @@ function App(){
             <a href="/" className="nav-link">Home</a>
           </li>
           <li className="nav-item d-none d-sm-inline-block">
-            <a href="/" className="nav-link">Contact</a>
+            <a href="/fraction" className="nav-link">Fractions</a>
           </li>
         </ul>
     
