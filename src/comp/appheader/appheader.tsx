@@ -10,6 +10,9 @@ function App(){
           <li className="nav-item d-none d-sm-inline-block">
             <a href="/fraction" className="nav-link">Fractions</a>
           </li>
+          <li className="nav-item d-none d-sm-inline-block">
+            <a href="/derivative" className="nav-link">Derivatives</a>
+          </li>
         </ul>
     
         <ul className="navbar-nav ml-auto">
