@@ -72,7 +72,7 @@ function Equation() {
       </div>
       <div className="card-body">
         <div className="container-fluid">
-          <div className="row"></div>
+          
           <div id="eq" style={equationWrapperStyle}>
             <EditableMathField
               style={equationInputStyle}
@@ -84,19 +84,35 @@ function Equation() {
               }}
             />
             <p style={equationOutputStyle}>
-              <span>latex: </span>
+              {/* <span>latex: </span>
               <strong>
                 <code>{Eqn}</code>
-              </strong>
+              </strong> */}
             </p>
             <p style={equationOutputStyle}>
-              <span>raw: </span>
+              {/* <span>raw: </span>
               <strong>
                 <code>{raw}</code>
-              </strong>
+              </strong> */}
             </p>
           </div>
+          <div className="row">
          
+              <div className="col-sm-12 col-md-6">
+                {/* <!-- Mixed fraction bootstrap layout using input--> */}
+               
+
+              </div>
+              <div className="col-sm-12 col-md-6">
+                <div className="row">
+                  <button className="col btn btn-outline-primary btn-lg"><i className="fa fa-plus"></i></button> &nbsp; &nbsp;
+                  <button className="col btn btn-outline-primary btn-lg"><i className="fa fa-minus"></i></button> &nbsp; &nbsp;
+                  <button className="col btn btn-outline-primary btn-lg"><i className="fa fa-times"></i></button> &nbsp; &nbsp;
+                  <button className="col btn btn-outline-primary btn-lg"><i className="fa fa-divide"></i></button> &nbsp; &nbsp;
+                </div>
+              </div>
+           
+          </div>
         </div>
       </div>
       <div className="card-footer">
@@ -125,7 +141,6 @@ function Equation() {
   function Solve() {
     var equate = new NormalEquationSolver();
     var solved = equate.Solve(raw);
-
     setResult(solved);
   }
 }
