@@ -61,18 +61,24 @@ function Equation() {
       <div className="card-header">
         <div className="card-title">Solve the fractions</div>
         <div className="card-tools">
-        <button type="button" className="btn btn-tool" data-card-widget="maximize">
+          <button
+            type="button"
+            className="btn btn-tool"
+            data-card-widget="maximize"
+          >
             <i className="fas fa-expand"></i>
           </button>
-          <button type="button" className="btn btn-tool" data-card-widget="collapse">
+          <button
+            type="button"
+            className="btn btn-tool"
+            data-card-widget="collapse"
+          >
             <i className="fas fa-minus"></i>
           </button>
-          
         </div>
       </div>
       <div className="card-body">
         <div className="container-fluid">
-          
           <div id="eq" style={equationWrapperStyle}>
             <EditableMathField
               style={equationInputStyle}
@@ -82,6 +88,13 @@ function Equation() {
                 setRaw(equation.text());
                 setEqn(equation.latex());
               }}
+            />
+          
+            <EditableMathField
+              latex={Result}
+              className="mathquill-example-field"
+              style={equationInputStyle}
+              // contentEditable="false"
             />
             <p style={equationOutputStyle}>
               {/* <span>latex: </span>
@@ -97,43 +110,40 @@ function Equation() {
             </p>
           </div>
           <div className="row">
-         
-              <div className="col-sm-12 col-md-6">
-                {/* <!-- Mixed fraction bootstrap layout using input--> */}
-               
-
+            <div className="col-sm-12 col-md-6">
+              {/* <!-- Mixed fraction bootstrap layout using input--> */}
+            </div>
+            <div className="col-sm-12 col-md-6">
+              <div className="row">
+                <button className="col btn btn-outline-primary btn-lg">
+                  <i className="fa fa-plus"></i>
+                </button>{" "}
+                &nbsp; &nbsp;
+                <button className="col btn btn-outline-primary btn-lg">
+                  <i className="fa fa-minus"></i>
+                </button>{" "}
+                &nbsp; &nbsp;
+                <button className="col btn btn-outline-primary btn-lg">
+                  <i className="fa fa-times"></i>
+                </button>{" "}
+                &nbsp; &nbsp;
+                <button className="col btn btn-outline-primary btn-lg">
+                  <i className="fa fa-divide"></i>
+                </button>{" "}
+                &nbsp; &nbsp;
               </div>
-              <div className="col-sm-12 col-md-6">
-                <div className="row">
-                  <button className="col btn btn-outline-primary btn-lg"><i className="fa fa-plus"></i></button> &nbsp; &nbsp;
-                  <button className="col btn btn-outline-primary btn-lg"><i className="fa fa-minus"></i></button> &nbsp; &nbsp;
-                  <button className="col btn btn-outline-primary btn-lg"><i className="fa fa-times"></i></button> &nbsp; &nbsp;
-                  <button className="col btn btn-outline-primary btn-lg"><i className="fa fa-divide"></i></button> &nbsp; &nbsp;
-                </div>
-              </div>
-           
+            </div>
           </div>
         </div>
       </div>
       <div className="card-footer">
-      <div className="row">
-            <div className="col">
-              <button onClick={Solve} className="btn btn-outline-primary">
-                Solve
-              </button>
-            </div>
-    
-          <div className="col" >
-            <div style={placeholderOutputStyle}>
-
-            <EditableMathField
-              latex={Result}
-              contentEditable="false"
-              style={outputStyle}
-              />
-              </div>
+        <div className="row">
+          <div className="col">
+            <button onClick={Solve} className="btn btn-outline-primary">
+              Solve
+            </button>
           </div>
-          </div>
+        </div>
       </div>
     </div>
   );
@@ -141,7 +151,7 @@ function Equation() {
   function Solve() {
     var equate = new NormalEquationSolver();
     var solved = equate.Solve(raw);
-    setResult(solved);
+    setResult("= "+solved);
   }
 }
 
