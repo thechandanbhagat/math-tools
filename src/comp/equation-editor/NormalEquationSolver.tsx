@@ -17,6 +17,9 @@ class NormalEquationSolver implements IEquationSolver {
   resultCleaner(equation: string): string {
     var pattern=/(\d+)\/(\d+)/g;
     var regex = new RegExp(pattern);
+    if(equation.endsWith("/1")){
+      return equation.substring(0,equation.indexOf("/1"))
+    }
     return equation.replace(regex, '\\frac{$1}{$2}');
   }
 
