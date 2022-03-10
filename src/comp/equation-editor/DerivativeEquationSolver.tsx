@@ -10,6 +10,7 @@ class DerivativeEquationSolver implements IEquationSolver{
 
     equationCleaner(equation: string): string[] {
         equation=equation.replace(/(\()([*+/^-])/g, '$1');
+        equation=equation.replace(/([*+/^-])(\))/g, '$2');
         var pattern =/(\(d\))\/(\(d\*[a-zA-Z0-9]+\))(\([a-zA-Z0-9*^+\-/.\(\)\[\]\{\}]+\))/g;
         var reg=new RegExp(pattern);
         var base=equation.replace(reg, '$2').replace(/(\(d\*)([a-zA-Z0-9]+)(\))/g, '$2');
