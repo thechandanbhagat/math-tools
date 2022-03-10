@@ -2,7 +2,7 @@ import React from "react";
 
 function App() {
   return (
-    <nav className="main-header navbar navbar-expand navbar-white navbar-light elevation-5">
+    <nav className="main-header navbar navbar-expand-md navbar-white navbar-light elevation-5">
       <div className="container-fluid">
         <button
           className="navbar-toggler order-1"
