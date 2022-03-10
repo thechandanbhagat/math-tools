@@ -1,6 +1,35 @@
-import React from "react";
+import React, { CSSProperties, useState } from "react";
+import { EditableMathField } from "react-mathquill";
 
-function Derivative() {
+const equationWrapperStyle: CSSProperties = {
+  fontSize: "48px",
+  position: "relative",
+  display: "table",
+  marginTop: "7%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+};
+const equationInputStyle: CSSProperties = {
+  fontSize: "48px",
+  alignSelf: "center",
+  textAlign: "center",
+  border: "none",
+  alignContent: "center",
+};
+
+const equationOutputStyle: CSSProperties = {
+  fontSize: "16px",
+  color: "rgb(232, 62, 140)",
+  textAlign: "center",
+  border: "none",
+  alignContent: "center",
+};
+
+function Derivatives() {
+  const [TextEqn, setTextEqn] = useState("");
+  const [raw, setRaw] = useState("(d)/(d*x)(*x^2)");
+  const [Result, setResult] = useState("");
+  const [Eqn, setEqn] = useState("\\frac{d}{dx}(x^2)");
   return (
     <div className="card elevation-5">
       <div className="card-header">
@@ -24,10 +53,56 @@ function Derivative() {
           </button>
         </div>
       </div>
-      <div className="card-body"></div>
-      <div className="card-footer"></div>
+      <div className="card-body">
+      <div className="container-fluid">
+      <div id="eq" style={equationWrapperStyle}>
+            <EditableMathField
+              style={equationInputStyle}
+              className="mathquill-example-field"
+              latex={Eqn}
+              onChange={(equation) => {
+                setRaw(equation.text());
+                setEqn(equation.latex());
+              }}
+            />
+          
+            <EditableMathField
+              latex={Result}
+              className="mathquill-example-field"
+              style={equationInputStyle}
+              // contentEditable="false"
+            />
+            <p style={equationOutputStyle}>
+              {/* <span>latex: </span>
+              <strong>
+                <code>{Eqn}</code>
+              </strong> */}
+            </p>
+            <p style={equationOutputStyle}>
+              <span>raw: </span>
+              <strong>
+                <code>{raw}</code>
+              </strong>
+            </p>
+          </div>
+       
+        </div>
+        </div>
+      <div className="card-footer">
+      <div className="row">
+          <div className="col">
+            <button onClick={Solve} className="btn btn-outline-primary">
+              Solve
+            </button>
+          </div>
+        </div>
+        </div>
     </div>
   );
+
+  function Solve(){
+
+  }
 }
 
-export default Derivative;
+export default Derivatives;
