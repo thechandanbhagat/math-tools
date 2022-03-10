@@ -1,8 +1,11 @@
 import React, { CSSProperties } from "react";
+import { addStyles } from "react-mathquill";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Equations from "../equation-editor/Equation";
 import Derivative from "./Derivative";
 import Home from "./Home";
+
+addStyles();
 
 const cardStyle: CSSProperties = {
   marginLeft: "2%",
