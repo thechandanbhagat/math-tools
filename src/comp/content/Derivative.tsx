@@ -1,5 +1,6 @@
 import React, { CSSProperties, useState } from "react";
 import { EditableMathField } from "react-mathquill";
+import DerivativeEquationSolver from "../equation-editor/DerivativeEquationSolver";
 
 const equationWrapperStyle: CSSProperties = {
   fontSize: "48px",
@@ -79,10 +80,10 @@ function Derivatives() {
               </strong> */}
             </p>
             <p style={equationOutputStyle}>
-              <span>raw: </span>
+              {/* <span>raw: </span>
               <strong>
                 <code>{raw}</code>
-              </strong>
+              </strong> */}
             </p>
           </div>
        
@@ -101,7 +102,9 @@ function Derivatives() {
   );
 
   function Solve(){
-
+    var deriv=new DerivativeEquationSolver();
+    var result=deriv.Solve(raw)
+    setResult("= "+result.toString());
   }
 }
 
