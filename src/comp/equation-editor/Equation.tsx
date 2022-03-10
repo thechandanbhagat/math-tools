@@ -8,9 +8,9 @@ const equationWrapperStyle: CSSProperties = {
   fontSize: "48px",
   position: "relative",
   display: "table",
-  marginTop: "7%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
+  marginLeft: "auto",
+  marginRight: "auto",
+  
 };
 
 const equationInputStyle: CSSProperties = {
@@ -79,7 +79,9 @@ function Equation() {
       </div>
       <div className="card-body">
         <div className="container-fluid">
+          <div className="row">
           <div id="eq" style={equationWrapperStyle}>
+          <div className="col-md-12 col-lg-6">
             <EditableMathField
               style={equationInputStyle}
               className="mathquill-example-field"
@@ -89,13 +91,16 @@ function Equation() {
                 setEqn(equation.latex());
               }}
             />
-          
+          </div>
+          <div className="col-md-12 col-lg-6"></div>
             <EditableMathField
               latex={Result}
               className="mathquill-example-field"
               style={equationInputStyle}
               // contentEditable="false"
             />
+            </div>
+           
             <p style={equationOutputStyle}>
               {/* <span>latex: </span>
               <strong>
@@ -109,33 +114,12 @@ function Equation() {
               </strong> */}
             </p>
           </div>
-          <div className="row">
-            <div className="col-sm-12 col-md-6">
-              {/* <!-- Mixed fraction bootstrap layout using input--> */}
-            </div>
-            <div className="col-sm-12 col-md-6">
-              <div className="row">
-                <button className="col btn btn-outline-primary btn-lg">
-                  <i className="fa fa-plus"></i>
-                </button>{" "}
-                &nbsp; &nbsp;
-                <button className="col btn btn-outline-primary btn-lg">
-                  <i className="fa fa-minus"></i>
-                </button>{" "}
-                &nbsp; &nbsp;
-                <button className="col btn btn-outline-primary btn-lg">
-                  <i className="fa fa-times"></i>
-                </button>{" "}
-                &nbsp; &nbsp;
-                <button className="col btn btn-outline-primary btn-lg">
-                  <i className="fa fa-divide"></i>
-                </button>{" "}
-                &nbsp; &nbsp;
-              </div>
-            </div>
           </div>
+         
+        
         </div>
-      </div>
+        
+     
       <div className="card-footer">
         <div className="row">
           <div className="col">

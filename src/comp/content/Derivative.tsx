@@ -6,9 +6,9 @@ const equationWrapperStyle: CSSProperties = {
   fontSize: "48px",
   position: "relative",
   display: "table",
-  marginTop: "7%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
+  marginLeft: "auto",
+  marginRight: "auto",
+  
 };
 const equationInputStyle: CSSProperties = {
   fontSize: "48px",
@@ -55,24 +55,29 @@ function Derivatives() {
         </div>
       </div>
       <div className="card-body">
-      <div className="container-fluid">
-      <div id="eq" style={equationWrapperStyle}>
-            <EditableMathField
-              style={equationInputStyle}
-              className="mathquill-example-field"
-              latex={Eqn}
-              onChange={(equation) => {
-                setRaw(equation.text());
-                setEqn(equation.latex());
-              }}
-            />
-          
-            <EditableMathField
-              latex={Result}
-              className="mathquill-example-field"
-              style={equationInputStyle}
-              // contentEditable="false"
-            />
+        <div className="container-fluid">
+            <div className="row">
+          <div id="eq" style={equationWrapperStyle}>
+              <div className="col-md-12 col-lg-6">
+                <EditableMathField
+                  style={equationInputStyle}
+                  className="mathquill-example-field"
+                  latex={Eqn}
+                  onChange={(equation) => {
+                    setRaw(equation.text());
+                    setEqn(equation.latex());
+                  }}
+                />
+              </div>
+              <div className="col-md-12 col-lg-6">
+                <EditableMathField
+                  latex={Result}
+                  className="mathquill-example-field"
+                  style={equationInputStyle}
+                  // contentEditable="false"
+                />
+              </div>
+            </div>
             <p style={equationOutputStyle}>
               {/* <span>latex: </span>
               <strong>
@@ -86,25 +91,24 @@ function Derivatives() {
               </strong> */}
             </p>
           </div>
-       
         </div>
-        </div>
+      </div>
       <div className="card-footer">
-      <div className="row">
+        <div className="row">
           <div className="col">
             <button onClick={Solve} className="btn btn-outline-primary">
               Solve
             </button>
           </div>
         </div>
-        </div>
+      </div>
     </div>
   );
 
-  function Solve(){
-    var deriv=new DerivativeEquationSolver();
-    var result=deriv.Solve(raw)
-    setResult("= "+result.toString());
+  function Solve() {
+    var deriv = new DerivativeEquationSolver();
+    var result = deriv.Solve(raw);
+    setResult("= " + result.toString());
   }
 }
 
