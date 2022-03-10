@@ -1,8 +1,8 @@
 import React, { CSSProperties, useState } from "react";
-import { addStyles, EditableMathField } from "react-mathquill";
+import { EditableMathField } from "react-mathquill";
 import NormalEquationSolver from "./NormalEquationSolver";
 
-addStyles();
+
 
 const equationWrapperStyle: CSSProperties = {
   fontSize: "48px",
