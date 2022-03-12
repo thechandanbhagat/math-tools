@@ -139,5 +139,4 @@ function Equation() {
   }
 }
 
-
 export default Equation;
