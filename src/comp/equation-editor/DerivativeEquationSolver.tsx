@@ -4,8 +4,8 @@ import { IEquationSolver } from "./IEquationSolver";
 class DerivativeEquationSolver implements IEquationSolver{
     Solve(equation: string): string {
         var cleaned=this.equationCleaner(equation);
-        var res=derivative(cleaned[3],cleaned[2]);
-        return res.toString();
+        var res=derivative(cleaned[3],cleaned[2],{simplify:true});
+        return res.toTex().toString();
     }
 
     equationCleaner(equation: string): string[] {
