@@ -28,7 +28,6 @@ const centerBlock:CSSProperties={
     margin:"0 auto"
 }
 
-
 function Bisection() {
   const [raw, setRaw] = useState("2*(x^2)+3*x-5");
   const [Result, setResult] = useState("");
