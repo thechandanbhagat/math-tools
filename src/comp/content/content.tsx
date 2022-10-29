@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Equations from "../equation-editor/Equation";
 import Derivative from "./Derivative";
 import Home from "./Home";
+import Bisection from "./numerical-methods/bisection";
 
 addStyles();
 
@@ -25,6 +26,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/fraction" element={<Equations />} />
               <Route path="/derivative" element={<Derivative />} />
+              <Route path="/numerical-methods/bisection" element={<Bisection />} />
             </Routes>
           </BrowserRouter>
         </div>
