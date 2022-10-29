@@ -33,6 +33,27 @@ function App() {
                 Derivatives
               </a>
             </li>
+            <li className="nav-item dropdown">
+              <a
+                className="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Numerical Methods
+              </a>
+              <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a
+                  href="/numerical-methods/bisection"
+                  className="dropdown-item"
+                >
+                  Bisection
+                </a>
+              </div>
+            </li>
           </ul>
         </div>
         <ul className="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">

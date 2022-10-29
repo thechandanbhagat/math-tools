@@ -1,11 +1,15 @@
 import { derivative } from "mathjs";
 import { IEquationSolver } from "./IEquationSolver";
+const mathsteps =require('mathsteps');
 
 class DerivativeEquationSolver implements IEquationSolver{
     Solve(equation: string): string {
         var cleaned=this.equationCleaner(equation);
-        var res=derivative(cleaned[3],cleaned[2]);
-        return res.toString();
+        var res=derivative(cleaned[3],cleaned[2],{simplify:true});
+        //var steps =mathsteps.(cleaned);
+        //console.log(steps);
+        console.log(res);
+        return res.toTex().toString();
     }
 
     equationCleaner(equation: string): string[] {
